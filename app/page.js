@@ -86,88 +86,7 @@ export default function Home() {
           </div>
         </header>
 
-        {/* ——— FOOD ——— */}
-        {/* <SectionDivider label="Food" /> */}
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-          {/* Col 1 — Sandwich + Chicken Wings */}
-          <div className="flex flex-col gap-6 h-full">
-            <Card title="Sandwich" image="/assets/images/sandwiches.png">
-              <ItemList items={SANDWICH} />
-            </Card>
-
-            <Card title="Chicken Wings" image="/assets/images/wings.png">
-              <div className="space-y-3 mb-5">
-                <Item name="Wing Meal (4 pcs + Rice)" price="180" />
-                <Item name="Ala Carte (6 pcs)" price="270" />
-              </div>
-              <div className="border-t border-primary pt-4">
-                <div className="font-mono text-[12px] uppercase tracking-widest text-on-surface-variant mb-3">
-                  Available Flavors
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {WING_FLAVORS.map((flavor) => (
-                    <span
-                      key={flavor}
-                      className="font-mono text-[10px] border border-outline px-2 py-0.5 uppercase tracking-widest"
-                    >
-                      {flavor}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Card>
-          </div>
-
-          {/* Col 2 — Pasta + Appetizer */}
-          <div className="flex flex-col gap-6 h-full">
-            <Card title="Pasta" image="/assets/images/pasta.png">
-              <ItemList items={PASTA} />
-            </Card>
-
-            <Card
-              title="Appetizer"
-              image="/assets/images/appetizers.png"
-              className="flex-1"
-            >
-              <div className="space-y-3">
-                <ItemWithDescription
-                  name="Fries"
-                  description="Cheese, BBQ, Sour Cream, Plain"
-                  price="110"
-                />
-                <ItemList items={APPETIZER_REST} />
-              </div>
-            </Card>
-          </div>
-
-          {/* Row 2 — Breakfast | Rice Meals */}
-          <Card
-            title="All-Day Breakfast"
-            className="h-full"
-            image="/assets/images/breakfast.png"
-          >
-            <ItemList items={ALL_DAY_BREAKFAST} />
-          </Card>
-
-          <Card
-            title="Rice Meals"
-            className="h-full"
-            image="/assets/images/ricemeals.png"
-          >
-            <div className="space-y-3">
-              <Item name="Bagnet Kare-Kare" price="200" />
-              <Item name="Chicken Fillet" price="170" />
-              <Item name="Kimchi Spam Rice" price="170" />
-              <Item name="Cheesy Hungarian" price="150" />
-              <Item name="Spam Nori" price="150" />
-              <Item name="Pork Sisig" price="130" />
-            </div>
-          </Card>
-        </div>
-
         {/* ——— DRINKS ——— */}
-        <SectionDivider label="Drinks" />
 
         {/* Row 1 — Headliners: Coffee | Matcha Series */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-6">
@@ -251,13 +170,98 @@ export default function Home() {
         </div>
 
         {/* Row 4 — Barista | TBC Specialty (white, sienna title) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-12">
           <DrinkCard title="Barista Drink" className="h-full">
             <IcedTable items={BARISTA} />
           </DrinkCard>
           <DrinkCard title="TBC Specialty" className="h-full" titleAccent>
             <PriceList items={TBC_SPECIALTY} bold />
           </DrinkCard>
+        </div>
+
+        {/* ——— FOOD ——— */}
+        {/* Order: Appetizer · Sandwich · Rice Meals · Pasta · Wings · All-Day Breakfast */}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+          <Card
+            title="Appetizer"
+            className="h-full"
+            image="/assets/images/appetizers.png"
+          >
+            <div className="space-y-3">
+              <ItemWithDescription
+                name="Fries"
+                description="Cheese, BBQ, Sour Cream, Plain"
+                price="110"
+              />
+              <ItemList items={APPETIZER_REST} />
+            </div>
+          </Card>
+
+          <Card
+            title="Sandwich"
+            className="h-full"
+            image="/assets/images/sandwiches.png"
+          >
+            <ItemList items={SANDWICH} />
+          </Card>
+
+          <Card
+            title="Rice Meals"
+            className="h-full"
+            image="/assets/images/ricemeals.png"
+          >
+            <div className="space-y-3">
+              <Item name="Bagnet Kare-Kare" price="200" />
+              <Item name="Chicken Fillet" price="170" />
+              <Item name="Kimchi Spam Rice" price="170" />
+              <Item name="Cheesy Hungarian" price="150" />
+              <Item name="Spam Nori" price="150" />
+              <Item name="Pork Sisig" price="130" />
+            </div>
+          </Card>
+
+          <Card
+            title="Pasta"
+            className="h-full"
+            image="/assets/images/pasta.png"
+          >
+            <ItemList items={PASTA} />
+          </Card>
+
+          <Card
+            title="Chicken Wings"
+            className="h-full"
+            image="/assets/images/wings.png"
+          >
+            <div className="space-y-3 mb-5">
+              <Item name="Wing Meal (4 pcs + Rice)" price="180" />
+              <Item name="Ala Carte (6 pcs)" price="270" />
+            </div>
+            <div className="border-t border-primary pt-4">
+              <div className="font-mono text-[12px] uppercase tracking-widest text-on-surface-variant mb-3">
+                Available Flavors
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {WING_FLAVORS.map((flavor) => (
+                  <span
+                    key={flavor}
+                    className="font-mono text-[10px] border border-outline px-2 py-0.5 uppercase tracking-widest"
+                  >
+                    {flavor}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </Card>
+
+          <Card
+            title="All-Day Breakfast"
+            className="h-full"
+            image="/assets/images/breakfast.png"
+          >
+            <ItemList items={ALL_DAY_BREAKFAST} />
+          </Card>
         </div>
 
         <p className="mt-10 font-mono text-[10px] text-on-surface-variant uppercase tracking-widest text-center">
@@ -418,17 +422,6 @@ const TBC_SPECIALTY = [
 ];
 
 /* ——— Building blocks ——— */
-
-function SectionDivider({ label }) {
-  return (
-    <div className="flex items-center gap-4 my-10 first:mt-0">
-      <span className="font-mono text-label-caps uppercase tracking-widest">
-        {label}
-      </span>
-      <div className="flex-1 border-t-2 border-primary" />
-    </div>
-  );
-}
 
 function Card({ title, children, className = "", image }) {
   return (
