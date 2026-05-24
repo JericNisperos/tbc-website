@@ -213,11 +213,11 @@ export default function Home() {
           >
             <div className="space-y-3">
               <Item name="Bagnet Kare-Kare" price="200" />
-              <Item name="Chicken Fillet" price="170" />
-              <Item name="Kimchi Spam Rice" price="170" />
+              <Item name="Chicken Fillet" price="180" />
+              <Item name="Kimchi Spam Rice" price="180" />
               <Item name="Cheesy Hungarian" price="150" />
               <Item name="Spam Nori" price="150" />
-              <Item name="Pork Sisig" price="130" />
+              <Item name="Pork Sisig" price="140" />
               <Item name="Creamy Burger Steak" price="150" />
             </div>
           </Card>
@@ -237,7 +237,7 @@ export default function Home() {
           >
             <div className="space-y-3 mb-5">
               <Item name="Wing Meal (4 pcs + Rice)" price="180" />
-              <Item name="Ala Carte (6 pcs)" price="270" />
+              <Item name="Ala Carte (6 pcs)" price="250" />
             </div>
             <div className="border-t border-primary pt-4">
               <div className="font-mono text-[12px] uppercase tracking-widest text-on-surface-variant mb-3">

@@ -48,24 +48,25 @@ All prices in PHP. Item names and spellings are preserved exactly as printed on 
 | Street Bites Platter | 120 |
 
 ### Rice Meals
-*(source: `appetizer.jpg`)*
+*(source: `appetizer.png` — updated prices)*
 
 | Item | Price |
 |---|---|
 | Bagnet Kare-Kare | 200 |
-| Chicken Fillet | 170 |
-| Kimchi Spam Rice | 170 |
+| Chicken Fillet | 180 |
+| Kimchi Spam Rice | 180 |
 | Cheesy Hungarian | 150 |
 | Spam Nori | 150 |
-| Pork Sisig | 130 |
+| Pork Sisig | 140 |
+| Creamy Burger Steak | 150 |
 
 ### Chicken Wings
-*(source: `appetizer.jpg`)*
+*(source: `appetizer.png` — updated prices)*
 
 | Item | Price |
 |---|---|
 | Wing Meal (4 pcs + Rice) | 180 |
-| Ala Carte (6 pcs) | 270 |
+| Ala Carte (6 pcs) | 250 |
 
 **Wing flavors** (applies to Wing Meal):
 - Buffalo Wild Wings
