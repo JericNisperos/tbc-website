@@ -156,7 +156,7 @@ export default function Home() {
             image="/assets/images/ricemeals.png"
           >
             <div className="space-y-3">
-              <Item name="Bagnet Kare-Kare" price="200" accent />
+              <Item name="Bagnet Kare-Kare" price="200" />
               <Item name="Chicken Fillet" price="170" />
               <Item name="Kimchi Spam Rice" price="170" />
               <Item name="Cheesy Hungarian" price="150" />
