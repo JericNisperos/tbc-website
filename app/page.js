@@ -356,36 +356,36 @@ const ADD_ONS = [
 // Coffee — [name, hot, iced]; "—" = not offered
 const COFFEE = [
   ["Americano", "—", "90"],
-  ["Cafe Latte", "110", "110"],
-  ["Spanish Latte", "120", "120"],
-  ["Einsppäner Latte", "—", "150"],
-  ["Dark Mocha", "—", "120"],
-  ["Salted Caramel", "—", "130"],
-  ["Caramel Macchiato", "—", "140"],
-  ["White Mocha", "—", "120"],
-  ["Biscoff Latte", "—", "140"],
-  ["Oreo Latte", "—", "130"],
-  ["Ube Latte", "—", "130"],
+  ["Cafe Latte", "120", "120"],
+  ["Spanish Latte", "130", "130"],
+  ["Einsppäner Latte", "—", "160"],
+  ["Dark Mocha", "—", "130"],
+  ["Salted Caramel", "—", "150"],
+  ["Caramel Macchiato", "—", "150"],
+  ["White Mocha", "—", "130"],
+  ["Biscoff Latte", "—", "150"],
+  ["Oreo Latte", "—", "140"],
+  ["Ube Latte", "—", "140"],
 ];
 
 const MATCHA_SERIES = [
-  ["Matcha Latte", "120", "120"],
+  ["Matcha Latte", "130", "130"],
   ["Einsppäner Matcha", "—", "160"],
   ["Earthy Matcha Latte", "150", "150"],
-  ["Strawberry Matcha", "—", "130"],
-  ["Blush Matcha", "—", "130"],
+  ["Strawberry Matcha", "—", "140"],
+  ["Blush Matcha", "—", "140"],
   ["Matcha Caramel", "—", "130"],
   ["Matcha Banana", "—", "160"],
   ["Matcha Oreo", "—", "130"],
-  ["White Choco Matcha", "—", "120"],
-  ["Ube Matcha", "—", "130"],
+  ["White Choco Matcha", "—", "130"],
+  ["Ube Matcha", "—", "140"],
   ["Dirty Matcha", "—", "130"],
 ];
 
 const SEA_SALT = [
   ["Sea Salt Matcha", "160"],
   ["Sea Salt Spanish Latte", "150"],
-  ["Sea Salt Ube", "140"],
+  ["Sea Salt Ube", "150"],
   ["Sea Salt Cocoa", "160"],
 ];
 
@@ -395,26 +395,26 @@ const NON_COFFEE = [
   ["Choco Berry", "130"],
   ["Choco Caramel", "130"],
   ["Chocolate Milk", "120"],
-  ["Milo Latte", "120"],
+  ["Milo Latte", "130"],
   ["Ube Milk", "130"],
   ["Cocoa Latte", "140"],
   ["Velvet Sugar Latte", "150"],
 ];
 
 const CREAM_SERIES = [
-  ["Matcha Cream", "130"],
+  ["Matcha Cream", "140"],
   ["Strawberry Cream", "130"],
   ["Choco Cream", "130"],
   ["Biscoff Cream", "150"],
-  ["Oreo Cream", "140"],
-  ["Ube Cream", "130"],
+  ["Oreo Cream", "150"],
+  ["Ube Cream", "140"],
   ["Cocoa Cream", "150"],
 ];
 
 const BARISTA = [
   ["TBC Signature", "150"],
-  ["Sea Salt Sub-Oat", "160"],
-  ["Matcha Sub-Oat", "150"],
+  ["Sea Salt Sub-Oat", "170"],
+  ["Matcha Sub-Oat", "160"],
 ];
 
 const TBC_SPECIALTY = [
