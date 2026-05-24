@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The Barrio Café - Digital Menu</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Space+Mono:wght@500;700&amp;family=Work+Sans:wght@400;500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#62635f",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dadada",
+                        "on-tertiary-container": "#e1562f",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-background": "#1a1c1c",
+                        "tertiary-container": "#3b0900",
+                        "secondary-fixed": "#e3e3de",
+                        "tertiary-fixed": "#ffdbd1",
+                        "secondary-container": "#e0e0db",
+                        "surface-container-low": "#f3f3f4",
+                        "on-primary-fixed-variant": "#474746",
+                        "outline": "#747878",
+                        "on-tertiary-fixed-variant": "#872000",
+                        "surface-container": "#eeeeee",
+                        "secondary": "#5d5f5b",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary": "#000000",
+                        "surface-variant": "#e2e2e2",
+                        "on-surface": "#1a1c1c",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary": "#000000",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-container-high": "#e8e8e8",
+                        "tertiary-fixed-dim": "#ffb5a0",
+                        "on-secondary-fixed": "#1a1c19",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#c6c7c2",
+                        "inverse-surface": "#2f3131",
+                        "on-primary-container": "#858383",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "outline-variant": "#c4c7c7",
+                        "on-secondary-fixed-variant": "#454744",
+                        "primary-container": "#1c1b1b",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-fixed": "#3b0900",
+                        "on-surface-variant": "#444748",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-tint": "#5f5e5e",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "section-gap": "48px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Bricolage Grotesque"],
+                        "price-display": ["Space Mono"],
+                        "body-md": ["Work Sans"],
+                        "headline-lg": ["Bricolage Grotesque"],
+                        "body-lg": ["Work Sans"],
+                        "headline-md": ["Bricolage Grotesque"],
+                        "label-caps": ["Space Mono"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "price-display": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-caps": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+        }
+
+        .hard-shadow-sm {
+            box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+        }
+
+        .dotted-leader {
+            flex-grow: 1;
+            border-bottom: 2px dotted #1a1c1c;
+            margin-bottom: 6px;
+            margin-left: 8px;
+            margin-right: 8px;
+            opacity: 0.3;
+        }
+
+        .menu-card {
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            padding: 24px;
+            border-radius: 0.75rem;
+            transition: all 0.2s ease;
+        }
+
+        .menu-item {
+            padding-bottom: 8px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .menu-item:last-child {
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body-md min-h-screen selection:bg-primary selection:text-on-primary">
+    <nav class="bg-surface border-b-2 border-primary z-50 sticky top-0">
+        <div class="flex justify-center items-center w-full max-w-[1000px] mx-auto px-margin-mobile py-4">
+            <div
+                class="font-display-lg text-headline-lg md:text-headline-lg font-extrabold text-primary tracking-tighter uppercase">
+                BISTRO MODERN
+            </div>
+        </div>
+    </nav>
+    <main class="max-w-[1000px] mx-auto px-margin-mobile py-8">
+        <header class="mb-10 text-center md:text-left">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-primary pb-4">
+                <div>
+                    <h1 class="font-display-lg text-display-lg uppercase italic leading-tight">Digital Menu</h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant">Signature Filipino flavors and
+                        artisanal refreshments.</p>
+                </div>
+                <div class="font-label-caps text-label-caps text-on-surface-variant">
+                    EST. 2024
+                </div>
+            </div>
+        </header>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+            <!-- 1. SANDWICHES Section -->
+            <section class="menu-card hard-shadow-sm h-full">
+                <h2 class="font-headline-lg text-headline-md uppercase mb-6 border-b-2 border-primary pb-2">Sandwiches
+                </h2>
+                <div class="space-y-3">
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">Overload Korean Sandwich</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">160</span>
+                    </div>
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">TBC Supreme Burger</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">180</span>
+                    </div>
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">Chicken Crunch Burger</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">160</span>
+                    </div>
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">The Hungarian Bite</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">140</span>
+                    </div>
+                </div>
+            </section>
+            <div class="flex flex-col gap-6">
+                <!-- 2. PASTA Section -->
+                <section class="menu-card hard-shadow-sm">
+                    <h2 class="font-headline-lg text-headline-md uppercase mb-4 border-b-2 border-primary pb-2">Pasta
+                    </h2>
+                    <div class="flex items-end">
+                        <span class="font-headline-md text-[18px] uppercase">Creamy Tuna Pasta</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">180</span>
+                    </div>
+                </section>
+                <!-- 4. APPETIZERS Section - Partial -->
+                <section class="menu-card hard-shadow-sm h-full">
+                    <h2 class="font-headline-lg text-headline-md uppercase mb-6 border-b-2 border-primary pb-2">
+                        Appetizers</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start justify-between">
+                            <div class="flex flex-col">
+                                <span class="font-headline-md text-[18px] uppercase">Fries</span>
+                                <span class="font-body-md text-[12px] text-on-surface-variant leading-none">Cheese, BBQ,
+                                    Sour Cream, Plain</span>
+                            </div>
+                            <div class="flex flex-grow items-end h-6 px-2">
+                                <div class="dotted-leader !mb-0"></div>
+                            </div>
+                            <span class="font-price-display text-price-display pt-1">110</span>
+                        </div>
+                        <div class="flex items-end menu-item">
+                            <span class="font-headline-md text-[18px] uppercase">Beefy Loaded Nachos</span>
+                            <div class="dotted-leader"></div>
+                            <span class="font-price-display text-price-display">150</span>
+                        </div>
+                        <div class="flex items-end menu-item">
+                            <span class="font-headline-md text-[18px] uppercase">Cheesy Overload Fries</span>
+                            <div class="dotted-leader"></div>
+                            <span class="font-price-display text-price-display">140</span>
+                        </div>
+                        <div class="flex items-end menu-item">
+                            <span class="font-headline-md text-[18px] uppercase">Chicken Tenders</span>
+                            <div class="dotted-leader"></div>
+                            <span class="font-price-display text-price-display">140</span>
+                        </div>
+                        <div class="flex items-end menu-item">
+                            <span class="font-headline-md text-[18px] uppercase">Cheesy Chix &amp; Fries</span>
+                            <div class="dotted-leader"></div>
+                            <span class="font-price-display text-price-display">140</span>
+                        </div>
+                        <div class="flex items-end menu-item">
+                            <span class="font-headline-md text-[18px] uppercase">Street Bites Platter</span>
+                            <div class="dotted-leader"></div>
+                            <span class="font-price-display text-price-display">120</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- 3. ALL-DAY BREAKFAST Section -->
+            <section class="menu-card hard-shadow-sm h-full">
+                <h2 class="font-headline-lg text-headline-md uppercase mb-6 border-b-2 border-primary pb-2">All-Day
+                    Breakfast</h2>
+                <div class="space-y-3">
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">Hotsilog</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">80</span>
+                    </div>
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">Hamsilog</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">80</span>
+                    </div>
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">Spamsilog</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">100</span>
+                    </div>
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">Tosilog</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">90</span>
+                    </div>
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">Tapsilog</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">120</span>
+                    </div>
+                </div>
+            </section>
+            <!-- 5. RICE MEALS Section -->
+            <section class="menu-card hard-shadow-sm h-full">
+                <h2 class="font-headline-lg text-headline-md uppercase mb-6 border-b-2 border-primary pb-2">Rice Meals
+                </h2>
+                <div class="space-y-3">
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase text-on-tertiary-container">Bagnet
+                            Kare-Kare</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">200</span>
+                    </div>
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">Chicken Fillet</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">170</span>
+                    </div>
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">Kimchi Spam Rice</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">170</span>
+                    </div>
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">Cheesy Hungarian</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">150</span>
+                    </div>
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">Spam Nori</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">150</span>
+                    </div>
+                    <div class="flex items-end menu-item">
+                        <span class="font-headline-md text-[18px] uppercase">Pork Sisig</span>
+                        <div class="dotted-leader"></div>
+                        <span class="font-price-display text-price-display">130</span>
+                    </div>
+                </div>
+            </section>
+            <!-- 6. CHICKEN WINGS Section -->
+            <section class="menu-card hard-shadow-sm md:col-span-2">
+                <h2 class="font-headline-lg text-headline-md uppercase mb-6 border-b-2 border-primary pb-2">Chicken
+                    Wings</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-5 bg-surface border-2 border-primary hard-shadow-sm rounded-xl">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <span
+                                    class="font-label-caps text-[10px] bg-primary text-on-primary px-2 py-0.5 mb-1 inline-block">Best
+                                    Value</span>
+                                <h3 class="font-headline-md text-[18px] uppercase">Wing Meal (4 Pcs + Rice)</h3>
+                            </div>
+                            <span class="font-price-display text-headline-md">180</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-label-caps text-[9px] border border-outline px-2 py-0.5 uppercase">Buffalo
+                                Wild</span>
+                            <span class="text-label-caps text-[9px] border border-outline px-2 py-0.5 uppercase">Korean
+                                BBQ</span>
+                            <span class="text-label-caps text-[9px] border border-outline px-2 py-0.5 uppercase">Golden
+                                Glazed</span>
+                            <span class="text-label-caps text-[9px] border border-outline px-2 py-0.5 uppercase">Sweet
+                                &amp; Sour</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="flex items-end w-full">
+                            <span class="font-headline-md text-[20px] uppercase">Ala Carte (6 Pieces)</span>
+                            <div class="dotted-leader"></div>
+                            <span class="font-price-display text-headline-md">270</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 7. DRINKS & REFRESHMENTS Section -->
+            <section class="menu-card hard-shadow-sm md:col-span-2">
+                <h2
+                    class="font-headline-lg text-headline-md uppercase mb-8 border-b-2 border-primary pb-2 text-center md:text-left">
+                    Drinks &amp; Refreshments</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Milk Tea Column -->
+                    <div class="flex flex-col gap-6">
+                        <div class="bg-surface-container-low p-4 rounded-lg border-2 border-primary h-full">
+                            <h3 class="font-label-caps text-label-caps mb-4 border-b border-primary pb-2 uppercase">Milk
+                                Tea</h3>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between"><span>Cookies and Cream</span><span
+                                        class="font-price-display">80</span></div>
+                                <div class="flex justify-between"><span>Dark Chocolate</span><span
+                                        class="font-price-display">90</span></div>
+                                <div class="flex justify-between"><span>Matcha</span><span
+                                        class="font-price-display">90</span></div>
+                                <div class="flex justify-between"><span>Okinawa</span><span
+                                        class="font-price-display">80</span></div>
+                                <div class="flex justify-between"><span>Taro</span><span
+                                        class="font-price-display">80</span></div>
+                                <div class="flex justify-between"><span>Red Velvet</span><span
+                                        class="font-price-display">90</span></div>
+                                <div class="flex justify-between"><span>Wintermelon</span><span
+                                        class="font-price-display">80</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Coffee Column -->
+                    <div class="flex flex-col gap-6 md:col-span-2">
+                        <div class="bg-surface p-4 rounded-lg border-2 border-primary h-full">
+                            <h3 class="font-label-caps text-label-caps mb-4 border-b border-primary pb-2 uppercase">
+                                Coffee</h3>
+                            <div class="grid grid-cols-1 gap-2 text-sm">
+                                <div class="flex justify-between font-bold mb-1"><span class="invisible">Item</span>
+                                    <div class="flex gap-8"><span>HOT</span><span>ICED</span></div>
+                                </div>
+                                <div class="flex justify-between border-b border-dashed border-outline-variant pb-1">
+                                    <span>Americano</span>
+                                    <div class="flex gap-11"><span>-</span><span class="font-price-display">90</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between border-b border-dashed border-outline-variant pb-1">
+                                    <span>Cafe Latte</span>
+                                    <div class="flex gap-8"><span class="font-price-display">110</span><span
+                                            class="font-price-display">110</span></div>
+                                </div>
+                                <div class="flex justify-between border-b border-dashed border-outline-variant pb-1">
+                                    <span>Spanish Latte</span>
+                                    <div class="flex gap-8"><span class="font-price-display">120</span><span
+                                            class="font-price-display">120</span></div>
+                                </div>
+                                <div class="flex justify-between border-b border-dashed border-outline-variant pb-1">
+                                    <span>Einspänner Latte</span>
+                                    <div class="flex gap-11"><span>-</span><span class="font-price-display">150</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between border-b border-dashed border-outline-variant pb-1">
+                                    <span>Dark Mocha</span>
+                                    <div class="flex gap-11"><span>-</span><span class="font-price-display">120</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between border-b border-dashed border-outline-variant pb-1">
+                                    <span>Caramel Macchiato</span>
+                                    <div class="flex gap-11"><span>-</span><span class="font-price-display">140</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between"><span>Biscoff Latte</span>
+                                    <div class="flex gap-11"><span>-</span><span class="font-price-display">140</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Series Column 1 -->
+                    <div class="flex flex-col gap-6">
+                        <div class="bg-primary text-on-primary p-5 rounded-xl hard-shadow-sm h-full">
+                            <h3 class="font-label-caps text-label-caps mb-4 border-b border-on-primary pb-2 uppercase">
+                                Cream Cheese Series</h3>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between"><span>Dark Chocolate</span><span
+                                        class="font-price-display">120</span></div>
+                                <div class="flex justify-between"><span>Matcha</span><span
+                                        class="font-price-display">120</span></div>
+                                <div class="flex justify-between"><span>Okinawa</span><span
+                                        class="font-price-display">100</span></div>
+                                <div class="flex justify-between"><span>Red Velvet</span><span
+                                        class="font-price-display">110</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Series Column 2 -->
+                    <div class="flex flex-col gap-6">
+                        <div class="border-2 border-primary p-5 rounded-xl bg-surface-container h-full">
+                            <h3 class="font-label-caps text-label-caps mb-4 border-b border-primary pb-2 uppercase">Sea
+                                Salt Series</h3>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between"><span>Sea Salt Matcha</span><span
+                                        class="font-price-display">160</span></div>
+                                <div class="flex justify-between"><span>Sea Salt Spanish Latte</span><span
+                                        class="font-price-display">150</span></div>
+                                <div class="flex justify-between"><span>Sea Salt Cocoa</span><span
+                                        class="font-price-display">160</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Series Column 3 -->
+                    <div class="flex flex-col gap-6">
+                        <div class="border-2 border-primary p-5 rounded-xl bg-surface-container-low h-full">
+                            <h3 class="font-label-caps text-label-caps mb-4 border-b border-primary pb-2 uppercase">
+                                Barista Drinks</h3>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between font-bold"><span>TBC Signature</span><span
+                                        class="font-price-display">150</span></div>
+                                <div class="flex justify-between"><span>Sea Salt Sub-Oat</span><span
+                                        class="font-price-display">160</span></div>
+                                <div class="flex justify-between"><span>Matcha Sub-Oat</span><span
+                                        class="font-price-display">150</span></div>
+                                <div
+                                    class="flex justify-between mt-3 text-tertiary font-bold border-t border-primary pt-2">
+                                    <span>Cocoffee</span><span class="font-price-display">170</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bottom Refreshments Row -->
+                    <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="p-4 border-2 border-primary rounded-xl">
+                            <h3 class="font-label-caps text-label-caps mb-4 border-b border-primary pb-2 uppercase">
+                                Refreshments</h3>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between"><span>Blueberry Bliss</span><span
+                                        class="font-price-display">80</span></div>
+                                <div class="flex justify-between"><span>Green Apple Quench</span><span
+                                        class="font-price-display">80</span></div>
+                                <div class="flex justify-between"><span>Lychee Splash</span><span
+                                        class="font-price-display">80</span></div>
+                                <div class="flex justify-between"><span>Peach Delight</span><span
+                                        class="font-price-display">90</span></div>
+                            </div>
+                            <div
+                                class="mt-4 p-3 border-2 border-dashed border-primary rounded-lg text-[11px] italic leading-tight">
+                                Add-ons: Pearl (+20), Cream Cheese (+40)
+                            </div>
+                        </div>
+                        <div class="p-4 border-2 border-primary rounded-xl">
+                            <h3 class="font-label-caps text-label-caps mb-4 border-b border-primary pb-2 uppercase">
+                                Matcha Series</h3>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between"><span>Matcha Latte</span><span
+                                        class="font-price-display">120</span></div>
+                                <div class="flex justify-between"><span>Einspänner Matcha</span><span
+                                        class="font-price-display">160</span></div>
+                                <div class="flex justify-between"><span>Blush Matcha</span><span
+                                        class="font-price-display">130</span></div>
+                                <div class="flex justify-between"><span>Dirty Matcha</span><span
+                                        class="font-price-display">130</span></div>
+                            </div>
+                        </div>
+                        <div class="p-4 border-2 border-primary rounded-xl">
+                            <h3 class="font-label-caps text-label-caps mb-4 border-b border-primary pb-2 uppercase">
+                                Non-Coffee</h3>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between"><span>Hojicha Latte</span><span
+                                        class="font-price-display">150</span></div>
+                                <div class="flex justify-between"><span>Choco Berry</span><span
+                                        class="font-price-display">130</span></div>
+                                <div class="flex justify-between"><span>Milo Latte</span><span
+                                        class="font-price-display">120</span></div>
+                                <div class="flex justify-between"><span>Ube Milk</span><span
+                                        class="font-price-display">130</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="bg-surface border-t-2 border-primary mt-12">
+        <div
+            class="flex flex-col md:flex-row justify-between items-center w-full max-w-[1000px] mx-auto px-margin-mobile py-8 gap-gutter text-center md:text-left">
+            <div class="flex flex-col gap-2">
+                <div class="font-display-lg text-headline-md font-bold text-primary">BISTRO MODERN</div>
+                <div class="text-on-surface-variant font-label-caps text-[10px] uppercase max-w-xs">
+                    Please inform your server of any food allergies or dietary restrictions before ordering.
+                </div>
+            </div>
+            <div class="text-on-surface-variant font-label-caps text-[10px]">
+                © 2024 BISTRO MODERN • ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('.dotted-leader').forEach(leader => {
+            leader.style.opacity = '1';
+        });
+    </script>
+</body>
+
+</html>
