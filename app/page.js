@@ -306,6 +306,7 @@ const ALL_DAY_BREAKFAST = [
   ["Spamsilog", "100"],
   ["Tosilog", "90"],
   ["Tapsilog", "120"],
+  ["Creamy Burger Steak", "150"],
 ];
 
 const APPETIZER_REST = [
