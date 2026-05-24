@@ -88,18 +88,41 @@ export default function Home() {
 
         {/* ——— DRINKS ——— */}
 
-        {/* Row 1 — Headliners: Coffee | Matcha Series */}
+        {/* Row 1 — Coffee | Non Coffee */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-6">
           <DrinkCard title="Coffee" className="h-full">
             <HotIcedTable items={COFFEE} />
           </DrinkCard>
-          <DrinkCard title="Matcha Series" className="h-full">
-            <HotIcedTable items={MATCHA_SERIES} />
+          <DrinkCard title="Non Coffee" className="h-full">
+            <IcedTable items={NON_COFFEE} />
           </DrinkCard>
         </div>
 
-        {/* Row 2 — Add-On Compatible group: Milk Tea + Cream Cheese + TBC Refreshment with shared Add-Ons */}
-        <section className="menu-card hard-shadow-sm mb-6">
+        {/* Row 2 — Matcha Series | Cream Series */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-6">
+          <DrinkCard title="Matcha Series" className="h-full">
+            <HotIcedTable items={MATCHA_SERIES} />
+          </DrinkCard>
+          <DrinkCard title="Cream Series" className="h-full">
+            <IcedTable items={CREAM_SERIES} />
+          </DrinkCard>
+        </div>
+
+        {/* Row 3 — Sea Salt | Barista Drink | TBC Specialty */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch mb-6">
+          <DrinkCard title="Sea Salt Series" className="h-full">
+            <IcedTable items={SEA_SALT} />
+          </DrinkCard>
+          <DrinkCard title="Barista Drink" className="h-full">
+            <IcedTable items={BARISTA} />
+          </DrinkCard>
+          <DrinkCard title="TBC Specialty" className="h-full" titleAccent>
+            <PriceList items={TBC_SPECIALTY} bold />
+          </DrinkCard>
+        </div>
+
+        {/* Row 4 — Customizable Drinks: Milk Tea + Cream Cheese + TBC Refreshment with shared Add-Ons */}
+        <section className="menu-card hard-shadow-sm mb-12">
           <h3 className="font-display text-headline-md uppercase mb-2 font-bold">
             Customizable Drinks
           </h3>
@@ -155,29 +178,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Row 3 — Iced variants: Sea Salt | Non Coffee | Cream Series */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch mb-6">
-          <DrinkCard title="Sea Salt Series" className="h-full">
-            <IcedTable items={SEA_SALT} />
-          </DrinkCard>
-          <DrinkCard title="Non Coffee" className="h-full">
-            <IcedTable items={NON_COFFEE} />
-          </DrinkCard>
-          <DrinkCard title="Cream Series" className="h-full">
-            <IcedTable items={CREAM_SERIES} />
-          </DrinkCard>
-        </div>
-
-        {/* Row 4 — Barista | TBC Specialty (white, sienna title) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-12">
-          <DrinkCard title="Barista Drink" className="h-full">
-            <IcedTable items={BARISTA} />
-          </DrinkCard>
-          <DrinkCard title="TBC Specialty" className="h-full" titleAccent>
-            <PriceList items={TBC_SPECIALTY} bold />
-          </DrinkCard>
-        </div>
 
         {/* ——— FOOD ——— */}
         {/* Order: Appetizer · Sandwich · Rice Meals · Pasta · Wings · All-Day Breakfast */}
