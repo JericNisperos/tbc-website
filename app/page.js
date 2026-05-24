@@ -218,6 +218,7 @@ export default function Home() {
               <Item name="Cheesy Hungarian" price="150" />
               <Item name="Spam Nori" price="150" />
               <Item name="Pork Sisig" price="130" />
+              <Item name="Creamy Burger Steak" price="150" />
             </div>
           </Card>
 
@@ -306,7 +307,6 @@ const ALL_DAY_BREAKFAST = [
   ["Spamsilog", "100"],
   ["Tosilog", "90"],
   ["Tapsilog", "120"],
-  ["Creamy Burger Steak", "150"],
 ];
 
 const APPETIZER_REST = [
