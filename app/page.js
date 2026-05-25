@@ -293,7 +293,7 @@ export default function Home() {
 /* ——— MENU DATA (source of truth: menu.md) ——— */
 
 const SANDWICH = [
-  ["Overload Korean Sandwich", "160"],
+  ["Overload Korean Sandwich", "180"],
   ["TBC Supreme Burger", "180"],
   ["Chicken Crunch Burger", "160"],
   ["The Hungarian Bite", "140"],
