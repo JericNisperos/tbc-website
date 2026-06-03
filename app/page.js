@@ -36,9 +36,9 @@ export default async function Home() {
     { src: "barista-drink.png", label: "Barista Drink" },
     { src: "milktea.png", label: "Milk Tea" },
     { src: "cream-cheese.png", label: "Cream Cheese" },
+    { src: "breakfast.png", label: "All-Day Breakfast" },
     { src: "appetizer.png", label: "Appetizer" },
     { src: "wings-meal.png", label: "Wings & Meals" },
-    { src: "breakfast.png", label: "All-Day Breakfast" },
   ];
 
   return (
