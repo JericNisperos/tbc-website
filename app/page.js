@@ -211,11 +211,15 @@ export default async function Home() {
 
             {/* ——— FOOD ——— */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+              <Card title={breakfast.title} className="h-full" image={breakfast.image}>
+                <ItemList items={breakfast.items} />
+              </Card>
+
               <Card title={appetizer.title} className="h-full" image={appetizer.image}>
                 <ItemList items={appetizer.items} />
               </Card>
 
-              <Card title={sandwich.title} className="h-full" image={sandwich.image}>
+              {/* <Card title={sandwich.title} className="h-full" image={sandwich.image}>
                 <ItemList items={sandwich.items} />
               </Card>
 
@@ -223,9 +227,12 @@ export default async function Home() {
                 <ItemList items={riceMeals.items} />
               </Card>
 
+
+
               <Card title={pasta.title} className="h-full" image={pasta.image}>
                 <ItemList items={pasta.items} />
-              </Card>
+              </Card> */}
+
 
               <Card title={wings.title} className="h-full" image={wings.image}>
                 <div className="space-y-3 mb-5">
@@ -252,13 +259,7 @@ export default async function Home() {
                 )}
               </Card>
 
-              <Card
-                title={breakfast.title}
-                className="h-full"
-                image={breakfast.image}
-              >
-                <ItemList items={breakfast.items} />
-              </Card>
+
             </div>
           </>
         )}
@@ -270,10 +271,10 @@ export default async function Home() {
             <div className="font-display text-headline-md font-bold uppercase">
               The Barrio Café
             </div>
-            <div className="font-mono text-[10px] text-on-surface-variant uppercase max-w-xs tracking-widest">
+            {/* <div className="font-mono text-[10px] text-on-surface-variant uppercase max-w-xs tracking-widest">
               Please inform our staff of any food allergies or dietary
               restrictions before ordering.
-            </div>
+            </div> */}
           </div>
           <div className="font-mono text-[10px] text-on-surface-variant tracking-widest">
             © 2023 The Barrio Café · All Rights Reserved
