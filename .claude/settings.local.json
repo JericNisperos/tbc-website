@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -v '^$')",
+      "Bash(cat 'C:\\\\Users\\\\User\\\\.lean-ctx\\\\tee\\\\2026-05-25_112339_npm_run_build_2__1.log' 2>/dev/null | tail -80)",
+      "Read(//c/Users/User/.lean-ctx/tee/**)"
+    ]
+  }
+}

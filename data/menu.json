@@ -1,0 +1,228 @@
+{
+  "drinks": [
+    {
+      "id": "coffee",
+      "title": "Coffee",
+      "type": "hotIced",
+      "items": [
+        { "name": "Americano", "hot": "—", "iced": "90" },
+        { "name": "Cafe Latte", "hot": "120", "iced": "120" },
+        { "name": "Spanish Latte", "hot": "130", "iced": "130" },
+        { "name": "Einsppäner Latte", "hot": "—", "iced": "160" },
+        { "name": "Dark Mocha", "hot": "—", "iced": "130" },
+        { "name": "Salted Caramel", "hot": "—", "iced": "150" },
+        { "name": "Caramel Macchiato", "hot": "—", "iced": "150" },
+        { "name": "White Mocha", "hot": "—", "iced": "130" },
+        { "name": "Biscoff Latte", "hot": "—", "iced": "150" },
+        { "name": "Oreo Latte", "hot": "—", "iced": "140" },
+        { "name": "Ube Latte", "hot": "—", "iced": "140" }
+      ]
+    },
+    {
+      "id": "non-coffee",
+      "title": "Non Coffee",
+      "type": "iced",
+      "items": [
+        { "name": "Hojicha Latte", "price": "150" },
+        { "name": "Strawberry Latte", "price": "130" },
+        { "name": "Choco Berry", "price": "130" },
+        { "name": "Choco Caramel", "price": "130" },
+        { "name": "Chocolate Milk", "price": "120" },
+        { "name": "Milo Latte", "price": "130" },
+        { "name": "Ube Milk", "price": "130" },
+        { "name": "Cocoa Latte", "price": "140" },
+        { "name": "Velvet Sugar Latte", "price": "150" }
+      ]
+    },
+    {
+      "id": "matcha-series",
+      "title": "Matcha Series",
+      "type": "hotIced",
+      "items": [
+        { "name": "Matcha Latte", "hot": "130", "iced": "130" },
+        { "name": "Einsppäner Matcha", "hot": "—", "iced": "160" },
+        { "name": "Earthy Matcha Latte", "hot": "150", "iced": "150" },
+        { "name": "Strawberry Matcha", "hot": "—", "iced": "140" },
+        { "name": "Blush Matcha", "hot": "—", "iced": "140" },
+        { "name": "Matcha Caramel", "hot": "—", "iced": "130" },
+        { "name": "Matcha Banana", "hot": "—", "iced": "160" },
+        { "name": "Matcha Oreo", "hot": "—", "iced": "130" },
+        { "name": "White Choco Matcha", "hot": "—", "iced": "130" },
+        { "name": "Ube Matcha", "hot": "—", "iced": "140" },
+        { "name": "Dirty Matcha", "hot": "—", "iced": "130" }
+      ]
+    },
+    {
+      "id": "cream-series",
+      "title": "Cream Series",
+      "type": "iced",
+      "items": [
+        { "name": "Matcha Cream", "price": "140" },
+        { "name": "Strawberry Cream", "price": "130" },
+        { "name": "Choco Cream", "price": "130" },
+        { "name": "Biscoff Cream", "price": "150" },
+        { "name": "Oreo Cream", "price": "150" },
+        { "name": "Ube Cream", "price": "140" },
+        { "name": "Cocoa Cream", "price": "150" }
+      ]
+    },
+    {
+      "id": "sea-salt-series",
+      "title": "Sea Salt Series",
+      "type": "iced",
+      "items": [
+        { "name": "Sea Salt Matcha", "price": "160" },
+        { "name": "Sea Salt Spanish Latte", "price": "150" },
+        { "name": "Sea Salt Ube", "price": "150" },
+        { "name": "Sea Salt Cocoa", "price": "160" }
+      ]
+    },
+    {
+      "id": "barista-drink",
+      "title": "Barista Drink",
+      "type": "iced",
+      "items": [
+        { "name": "TBC Signature", "price": "150" },
+        { "name": "Sea Salt Sub-Oat", "price": "170" },
+        { "name": "Matcha Sub-Oat", "price": "160" }
+      ]
+    },
+    {
+      "id": "tbc-specialty",
+      "title": "TBC Specialty",
+      "type": "simple",
+      "bold": true,
+      "titleAccent": true,
+      "items": [
+        { "name": "Cocoffee", "price": "170" },
+        { "name": "Coco-Cha", "price": "180" }
+      ]
+    },
+    {
+      "id": "customizable",
+      "title": "Customizable Drinks",
+      "type": "customizable",
+      "subtitle": "Add Pearl or Cream Cheese to any drink in this section.",
+      "subsections": [
+        {
+          "id": "milk-tea",
+          "title": "Milk Tea",
+          "items": [
+            { "name": "Cookies and Cream", "price": "80" },
+            { "name": "Dark Chocolate", "price": "90" },
+            { "name": "Matcha", "price": "90" },
+            { "name": "Okinawa", "price": "80" },
+            { "name": "Taro", "price": "80" },
+            { "name": "Red Velvet", "price": "90" },
+            { "name": "Wintermelon", "price": "80" }
+          ]
+        },
+        {
+          "id": "cream-cheese-series",
+          "title": "Cream Cheese Series",
+          "items": [
+            { "name": "Dark Chocolate", "price": "120" },
+            { "name": "Matcha", "price": "120" },
+            { "name": "Okinawa", "price": "100" },
+            { "name": "Red Velvet", "price": "110" }
+          ]
+        },
+        {
+          "id": "tbc-refreshment",
+          "title": "TBC Refreshment",
+          "items": [
+            { "name": "Blueberry Bliss", "price": "80" },
+            { "name": "Green Apple Quench", "price": "80" },
+            { "name": "Lychee Splash", "price": "80" },
+            { "name": "Peach Delight", "price": "90" }
+          ]
+        }
+      ],
+      "addOns": [
+        { "name": "Pearl", "price": "20" },
+        { "name": "Cream Cheese", "price": "40" }
+      ]
+    }
+  ],
+  "food": [
+    {
+      "id": "appetizer",
+      "title": "Appetizer",
+      "image": "/assets/images/appetizers.png",
+      "type": "simple",
+      "items": [
+        { "name": "Fries", "price": "110", "description": "Cheese, BBQ, Sour Cream, Plain" },
+        { "name": "Beefy Loaded Nachos", "price": "150" },
+        { "name": "Cheesy Overload Fries", "price": "140" },
+        { "name": "Chicken Tenders", "price": "140" },
+        { "name": "Cheesy Chix & Fries", "price": "140" },
+        { "name": "Street Bites Platter", "price": "120" }
+      ]
+    },
+    {
+      "id": "sandwich",
+      "title": "Sandwich",
+      "image": "/assets/images/sandwiches.png",
+      "type": "simple",
+      "items": [
+        { "name": "Overload Korean Sandwich", "price": "180" },
+        { "name": "TBC Supreme Burger", "price": "180" },
+        { "name": "Chicken Crunch Burger", "price": "160" },
+        { "name": "The Hungarian Bite", "price": "140" }
+      ]
+    },
+    {
+      "id": "rice-meals",
+      "title": "Rice Meals",
+      "image": "/assets/images/ricemeals.png",
+      "type": "simple",
+      "items": [
+        { "name": "Bagnet Kare-Kare", "price": "200" },
+        { "name": "Chicken Fillet", "price": "180" },
+        { "name": "Kimchi Spam Rice", "price": "180" },
+        { "name": "Cheesy Hungarian", "price": "150" },
+        { "name": "Spam Nori", "price": "150" },
+        { "name": "Pork Sisig", "price": "140" },
+        { "name": "Creamy Burger Steak", "price": "150" }
+      ]
+    },
+    {
+      "id": "pasta",
+      "title": "Pasta",
+      "image": "/assets/images/pasta.png",
+      "type": "simple",
+      "items": [
+        { "name": "Creamy Tuna Pasta", "price": "180" }
+      ]
+    },
+    {
+      "id": "chicken-wings",
+      "title": "Chicken Wings",
+      "image": "/assets/images/wings.png",
+      "type": "wings",
+      "items": [
+        { "name": "Wing Meal (4 pcs + Rice)", "price": "180" },
+        { "name": "Ala Carte (6 pcs)", "price": "250" }
+      ],
+      "flavors": [
+        "Buffalo Wild Wings",
+        "Korean BBQ Wings",
+        "Golden Glazed Wings",
+        "Sweet and Sour Wings"
+      ]
+    },
+    {
+      "id": "all-day-breakfast",
+      "title": "All-Day Breakfast",
+      "image": "/assets/images/breakfast.png",
+      "type": "simple",
+      "items": [
+        { "name": "Hotsilog", "price": "80" },
+        { "name": "Hamsilog", "price": "80" },
+        { "name": "Spamsilog", "price": "100" },
+        { "name": "Tosilog", "price": "90" },
+        { "name": "Tapsilog", "price": "120" }
+      ]
+    }
+  ]
+}
