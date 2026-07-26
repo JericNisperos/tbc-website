@@ -20,6 +20,7 @@ export default async function Home() {
   const customizable = drink("customizable");
 
   const appetizer = food("appetizer");
+  const croffle = food("croffle");
   const sandwich = food("sandwich");
   const riceMeals = food("rice-meals");
   const pasta = food("pasta");
@@ -36,6 +37,7 @@ export default async function Home() {
     { src: "barista-drink.png", label: "Barista Drink" },
     { src: "milktea.png", label: "Milk Tea" },
     { src: "cream-cheese.png", label: "Cream Cheese" },
+    { src: "croffle.png", label: "Croffle" },
     { src: "appetizer.png", label: "Appetizer" },
     { src: "breakfast.png", label: "All-Day Breakfast" },
     { src: "wings-meal.jpg", label: "Wings & Meals" },
@@ -116,6 +118,7 @@ export default async function Home() {
                 src={`/assets/images/newimages/${src}`}
                 alt={label}
                 fill
+                priority={src === "wings-meal.jpg" || src === "coffee.png"}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-contain"
               />

@@ -146,6 +146,13 @@
   ],
   "food": [
     {
+      "id": "croffle",
+      "title": "Croffle",
+      "image": "/assets/images/newimages/croffle.png",
+      "type": "simple",
+      "items": []
+    },
+    {
       "id": "appetizer",
       "title": "Appetizer",
       "image": "/assets/images/appetizers.png",
