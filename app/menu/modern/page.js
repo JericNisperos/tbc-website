@@ -141,6 +141,44 @@ export default function MenuModernPage() {
             </div>
           </section>
         ))}
+
+        {/* ——— Design 5: Two Column ——— */}
+        <div className="mt-24">
+          <p className="font-mono text-label-caps uppercase text-tertiary mb-5">
+            Design 5 — Two Column
+          </p>
+          {sections.map((section) => (
+            <section key={section.title} className="mb-20 last:mb-0">
+              <h2 className="font-display text-display-lg uppercase italic leading-tight text-center mb-12">
+                {section.title}
+              </h2>
+              <div className="grid grid-cols-2 gap-x-6 md:gap-x-16 gap-y-12 md:gap-y-16">
+                {section.items.map((item) => (
+                  <div key={item.src} className="flex flex-col gap-4">
+                    <div className="relative w-full aspect-square">
+                      <Image
+                        src={section.img(item.src)}
+                        alt={item.name}
+                        fill
+                        sizes="(max-width: 768px) 50vw, 500px"
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-3 border-t-2 border-primary pt-3">
+                      <span className="font-display text-[16px] md:text-[22px] uppercase font-semibold leading-tight">
+                        {item.name}
+                      </span>
+                      <div className="dotted-leader hidden md:block" />
+                      <span className="font-mono text-[14px] md:text-price shrink-0">
+                        {item.price}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
       </main>
 
       <footer className="bg-surface border-t-2 border-primary mt-12">
