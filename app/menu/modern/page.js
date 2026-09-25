@@ -1,9 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
-import { baristaDrinks, baristaDrinkImagePath } from "@/lib/baristaDrinks";
+import {
+  baristaDrinks,
+  baristaDrinkImagePath,
+  croffles,
+  croffleImagePath,
+} from "@/lib/baristaDrinks";
 
 // Style 1/5 — Modern Neo-Brutalist (matches the current site design system)
 export const dynamic = "force-static";
+
+const sections = [
+  { title: "Barista Drink", items: baristaDrinks, img: baristaDrinkImagePath },
+  { title: "Croffle", items: croffles, img: croffleImagePath },
+];
+
+// ponytail: highlight = every "best seller" item; swap for an explicit list if the pick changes
+const highlights = sections.flatMap((s) =>
+  s.items.filter((i) => i.tag === "best seller").map((i) => ({ ...i, img: s.img })),
+);
 
 export default function MenuModernPage() {
   return (
@@ -46,29 +61,18 @@ export default function MenuModernPage() {
       </section>
 
       <main className="max-w-[1100px] mx-auto px-4 md:px-12 py-12 md:py-16">
-        <header className="mb-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-primary pb-4">
-            <div>
-              <h2 className="font-display text-display-lg uppercase italic leading-tight">
-                Barista Drink
-              </h2>
-              <p className="font-body text-body-lg text-on-surface-variant">
-                Prices in PHP. Please inform our staff of any allergies.
-              </p>
-            </div>
+        {/* ——— Highlight: Grid Cards ——— */}
+        <section className="mb-24">
+          <header className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-primary pb-4">
+            <h2 className="font-display text-display-lg uppercase italic leading-tight">
+              Best Sellers
+            </h2>
             <div className="font-mono text-label-caps text-on-surface-variant">
               EST. 2023
             </div>
-          </div>
-        </header>
-
-        {/* ——— Design 1: Grid Cards ——— */}
-        <div className="mb-20">
-          <p className="font-mono text-label-caps uppercase text-tertiary mb-5">
-            Design 1 — Grid Cards
-          </p>
+          </header>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {baristaDrinks.map((item) => (
+            {highlights.map((item) => (
               <div
                 key={item.src}
                 className="menu-card hard-shadow-sm flex flex-col items-center text-center gap-3"
@@ -78,7 +82,7 @@ export default function MenuModernPage() {
                 </span>
                 <div className="relative w-full aspect-square">
                   <Image
-                    src={baristaDrinkImagePath(item.src)}
+                    src={item.img(item.src)}
                     alt={item.name}
                     fill
                     sizes="(max-width: 768px) 50vw, 33vw"
@@ -92,98 +96,51 @@ export default function MenuModernPage() {
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* ——— Design 2: List ——— */}
-        <div className="mb-20">
-          <p className="font-mono text-label-caps uppercase text-tertiary mb-5">
-            Design 2 — List
-          </p>
-          <div className="menu-card hard-shadow-sm divide-y-2 divide-primary">
-            {baristaDrinks.map((item) => (
-              <div key={item.src} className="flex items-center gap-4 py-4 first:pt-0 last:pb-0">
-                <div className="relative w-16 h-16 shrink-0 border border-outline bg-surface-container-lowest">
-                  <Image
-                    src={baristaDrinkImagePath(item.src)}
-                    alt={item.name}
-                    fill
-                    sizes="64px"
-                    className="object-contain"
-                  />
-                </div>
-                <div className="flex flex-col min-w-0">
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant">
-                    {item.tag}
+        {/* ——— Full menu: List ——— */}
+        {sections.map((section) => (
+          <section key={section.title} className="mb-20 last:mb-0">
+            <header className="mb-10 border-b-2 border-primary pb-4">
+              <h2 className="font-display text-display-lg uppercase italic leading-tight">
+                {section.title}
+              </h2>
+              <p className="font-body text-body-lg text-on-surface-variant">
+                Prices in PHP. Please inform our staff of any allergies.
+              </p>
+            </header>
+            <div className="menu-card hard-shadow-sm divide-y-2 divide-primary">
+              {section.items.map((item) => (
+                <div
+                  key={item.src}
+                  className="flex items-center gap-4 py-4 first:pt-0 last:pb-0"
+                >
+                  <div className="relative w-16 h-16 shrink-0 border border-outline bg-surface-container-lowest">
+                    <Image
+                      src={section.img(item.src)}
+                      alt={item.name}
+                      fill
+                      sizes="64px"
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant">
+                      {item.tag}
+                    </span>
+                    <span className="font-display text-[18px] uppercase font-semibold truncate">
+                      {item.name}
+                    </span>
+                  </div>
+                  <div className="dotted-leader" />
+                  <span className="font-mono text-price shrink-0">
+                    {item.price}
                   </span>
-                  <span className="font-display text-[18px] uppercase font-semibold truncate">
-                    {item.name}
-                  </span>
                 </div>
-                <div className="dotted-leader" />
-                <span className="font-mono text-price shrink-0">{item.price}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ——— Design 3: Single Container ——— */}
-        <div className="mb-20">
-          <p className="font-mono text-label-caps uppercase text-tertiary mb-5">
-            Design 3 — Single Container
-          </p>
-          <div className="menu-card hard-shadow-sm grid grid-cols-1 sm:grid-cols-2 gap-x-8">
-            {baristaDrinks.map((item) => (
-              <div
-                key={item.src}
-                className="flex items-center gap-3 py-3 border-b border-dashed border-outline-variant last:border-0 sm:[&:nth-last-child(-n+2)]:border-0"
-              >
-                <div className="relative w-10 h-10 shrink-0">
-                  <Image
-                    src={baristaDrinkImagePath(item.src)}
-                    alt={item.name}
-                    fill
-                    sizes="40px"
-                    className="object-contain"
-                  />
-                </div>
-                <span className="font-display text-[15px] uppercase font-semibold truncate">
-                  {item.name}
-                </span>
-                <div className="dotted-leader" />
-                <span className="font-mono text-[14px] shrink-0">{item.price}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ——— Design 4: Horizontal Strip ——— */}
-        <div>
-          <p className="font-mono text-label-caps uppercase text-tertiary mb-5">
-            Design 4 — Horizontal Strip
-          </p>
-          <div className="flex gap-4 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0">
-            {baristaDrinks.map((item) => (
-              <div
-                key={item.src}
-                className="menu-card hard-shadow-sm shrink-0 w-40 flex flex-col items-center text-center gap-2"
-              >
-                <div className="relative w-full aspect-square">
-                  <Image
-                    src={baristaDrinkImagePath(item.src)}
-                    alt={item.name}
-                    fill
-                    sizes="160px"
-                    className="object-contain"
-                  />
-                </div>
-                <div className="font-display text-[14px] uppercase font-semibold leading-tight">
-                  {item.name}
-                </div>
-                <div className="font-mono text-[13px]">{item.price}</div>
-              </div>
-            ))}
-          </div>
-        </div>
+              ))}
+            </div>
+          </section>
+        ))}
       </main>
 
       <footer className="bg-surface border-t-2 border-primary mt-12">
